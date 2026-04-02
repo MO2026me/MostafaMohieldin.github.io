@@ -1,124 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Mostafa Mohieldin | Research & Aerobiology</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root { --primary: #002147; --accent: #20368F; --light-blue: #eef4fb; --text: #333; }
-        * { box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; margin: 0; display: flex; background: #fdfdfd; color: var(--text); }
-        
-        /* Sidebar Navigation */
-        nav { width: 300px; height: 100vh; background: var(--primary); color: white; position: fixed; padding: 40px 25px; display: flex; flex-direction: column; z-index: 100; }
-        .profile-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 5px; line-height: 1.2; }
-        .profile-subtitle { font-size: 0.85rem; opacity: 0.8; margin-bottom: 40px; }
-        nav a { color: rgba(255,255,255,0.8); text-decoration: none; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.95rem; transition: 0.3s; }
-        nav a:hover { color: white; padding-left: 8px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mostafa Mohieldin — Researcher in Aerobiology & Public Health</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Content Area */
-        main { margin-left: 300px; padding: 60px; width: calc(100% - 300px); }
-        section { max-width: 900px; margin-bottom: 70px; }
-        h2 { font-size: 1.7rem; color: var(--primary); border-bottom: 2px solid var(--light-blue); padding-bottom: 10px; margin-bottom: 25px; }
+:root {
+  --bg:        #F4F1EB;
+  --bg-card:   #FFFFFF;
+  --text:      #1C1C1C;
+  --muted:     #5C5A52;
+  --teal:      #0E5C5C;
+  --teal-mid:  #1A8080;
+  --teal-lt:   #E3EFEF;
+  --copper:    #B07A2A;
+  --border:    rgba(0,0,0,0.09);
+  --shadow:    0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+}
 
-        /* News Sidebar Styles */
-        .news-container { background: var(--light-blue); padding: 25px; border-radius: 12px; margin-top: 20px; border-left: 5px solid var(--accent); }
-        .news-item { margin-bottom: 15px; font-size: 0.9rem; }
-        .news-date { font-weight: 600; color: var(--accent); display: block; }
+html { scroll-behavior: smooth; }
 
-        /* Publication Cards */
-        .pub-item { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 15px; border: 1px solid #eee; transition: 0.2s; }
-        .pub-item:hover { border-color: var(--accent); }
-        .pub-tag { font-size: 0.75rem; font-weight: 700; color: white; background: var(--accent); padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; display: inline-block; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.75;
+}
 
-        /* Buttons */
-        .sync-buttons { display: flex; gap: 15px; margin: 25px 0; }
-        .btn { padding: 10px 20px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600; color: white; transition: 0.3s; }
-        .scholar { background: #4285f4; }
-        .orcid { background: #A6CE39; }
-        .btn:hover { filter: brightness(1.1); transform: translateY(-2px); }
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(244, 241, 235, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem;
+  height: 64px;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px; font-weight: 600; letter-spacing: -0.02em;
+  color: var(--teal); text-decoration: none;
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted);
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--teal); }
+.nav-cv {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 8px 18px;
+  border: 1px solid var(--teal); border-radius: 3px;
+  color: var(--teal); text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-cv:hover { background: var(--teal-lt); }
 
-        @media (max-width: 900px) { body { flex-direction: column; } nav { width: 100%; height: auto; position: relative; } main { margin-left: 0; padding: 30px; width: 100%; } }
-    </style>
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 100px 3rem 4rem;
+  position: relative; overflow: hidden;
+}
+.hero-dot-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(14,92,92,0.11) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
+}
+.hero-arc {
+  position: absolute; right: -180px; top: 50%;
+  transform: translateY(-50%);
+  width: 680px; height: 680px; border-radius: 50%;
+  border: 1px solid rgba(14,92,92,0.10);
+  pointer-events: none;
+}
+.hero-arc2 {
+  position: absolute; right: -80px; top: 50%;
+  transform: translateY(-50%);
+  width: 480px; height: 480px; border-radius: 50%;
+  border: 1px solid rgba(14,92,92,0.07);
+  pointer-events: none;
+}
+.hero-content {
+  max-width: 680px; position: relative;
+  animation: fadeUp 0.85s cubic-bezier(0.16,1,0.3,1) both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--copper);
+  margin-bottom: 1.2rem;
+  animation: fadeUp 0.85s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+}
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(54px, 8vw, 96px);
+  font-weight: 600; line-height: 1.0; letter-spacing: -0.03em;
+  color: var(--teal); margin-bottom: 1.75rem;
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s both;
+}
+.hero-tagline {
+  font-size: 18px; font-weight: 300; color: var(--muted);
+  max-width: 520px; line-height: 1.65; margin-bottom: 2.5rem;
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.25s both;
+}
+.hero-tags {
+  display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 3rem;
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.35s both;
+}
+.tag {
+  font-size: 12px; font-weight: 400; padding: 5px 13px;
+  border-radius: 100px; background: var(--teal-lt);
+  color: var(--teal); border: 1px solid rgba(14,92,92,0.18);
+  letter-spacing: 0.02em;
+}
+.hero-cta {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s both;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 30px; background: var(--teal); color: #fff;
+  border-radius: 4px; font-size: 14px; font-weight: 500;
+  text-decoration: none; letter-spacing: 0.03em;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: #0A4848; transform: translateY(-2px); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 30px; border: 1px solid rgba(14,92,92,0.4);
+  color: var(--teal); border-radius: 4px; font-size: 14px; font-weight: 500;
+  text-decoration: none; letter-spacing: 0.03em; transition: background 0.2s;
+}
+.btn-outline:hover { background: var(--teal-lt); }
+
+/* ── SECTION SHELL ── */
+.section-wrap {
+  max-width: 1060px; margin: 0 auto; padding: 6rem 3rem;
+}
+.section-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--copper); margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 4.5vw, 52px);
+  font-weight: 600; line-height: 1.1; letter-spacing: -0.025em;
+  color: var(--teal); margin-bottom: 3rem;
+}
+
+/* ── ABOUT ── */
+#about { background: #FFFFFF; }
+.about-grid {
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 5rem; align-items: start;
+}
+.about-sidebar { position: sticky; top: 84px; }
+.avatar-ring {
+  width: 148px; height: 148px; border-radius: 50%;
+  background: var(--teal-lt);
+  border: 2px solid rgba(14,92,92,0.18);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.75rem;
+}
+.avatar-initials {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px; font-weight: 600; color: var(--teal);
+}
+.affil-label {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--copper); margin-bottom: 0.75rem;
+}
+.affil-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.affil-list li {
+  font-size: 12.5px; color: var(--muted); line-height: 1.5;
+  display: flex; align-items: flex-start; gap: 7px;
+}
+.affil-list li::before {
+  content: ''; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--copper); margin-top: 6px; flex-shrink: 0;
+}
+.about-body p { color: var(--text); line-height: 1.8; margin-bottom: 1.4rem; }
+.about-body p:last-of-type { margin-bottom: 0; }
+.expertise-row {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2rem;
+}
+
+/* ── RESEARCH ── */
+#research { background: var(--bg); }
+.research-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem;
+}
+.r-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px; padding: 2rem;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+.r-card:hover {
+  border-color: rgba(14,92,92,0.25);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+.r-icon {
+  width: 42px; height: 42px; border-radius: 6px;
+  background: var(--teal-lt); display: flex; align-items: center;
+  justify-content: center; margin-bottom: 1.25rem;
+}
+.r-icon svg { width: 20px; height: 20px; stroke: var(--teal); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.r-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; letter-spacing: -0.01em;
+  color: var(--teal); margin-bottom: 0.75rem;
+}
+.r-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+/* ── PUBLICATIONS ── */
+#publications { background: #FFFFFF; }
+.pub-list { display: flex; flex-direction: column; }
+.pub-item {
+  display: grid; grid-template-columns: 56px 1fr;
+  gap: 2rem; padding: 1.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.pub-item:first-child { padding-top: 0; }
+.pub-item:last-child { border-bottom: none; }
+.pub-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px; font-weight: 600; line-height: 1;
+  color: rgba(14,92,92,0.22); padding-top: 3px;
+}
+.pub-title {
+  font-size: 15px; font-weight: 500; color: var(--text);
+  margin-bottom: 5px; line-height: 1.45;
+}
+.pub-journal {
+  font-size: 13px; color: var(--muted);
+  font-style: italic; margin-bottom: 8px;
+}
+.pub-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.pub-badge {
+  display: inline-block; font-size: 10px; font-weight: 500;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 3px;
+  background: var(--teal-lt); color: var(--teal);
+}
+.pub-collab {
+  font-size: 12px; color: var(--muted);
+}
+
+/* ── CONTACT ── */
+#contact {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: start;
+}
+.contact-info { display: flex; flex-direction: column; gap: 2rem; }
+.c-item { display: flex; gap: 1.25rem; align-items: flex-start; }
+.c-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--copper); margin-top: 7px; flex-shrink: 0;
+}
+.c-label {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 3px;
+}
+.c-value { font-size: 15px; color: var(--text); }
+.memberships { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 2px; }
+.mbadge {
+  font-size: 12px; font-weight: 500; padding: 4px 13px;
+  border: 1px solid var(--border); border-radius: 100px; color: var(--muted);
+}
+.contact-blurb { color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 2.5rem; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--teal); color: rgba(255,255,255,0.65);
+  text-align: center; padding: 2.25rem 2rem;
+  font-size: 13px; letter-spacing: 0.02em;
+}
+footer strong { color: #fff; }
+footer a { color: rgba(255,255,255,0.55); text-decoration: none; margin: 0 12px; }
+footer a:hover { color: #fff; }
+
+/* ── DIVIDER ── */
+.section-divider {
+  width: 48px; height: 2px; background: var(--copper);
+  margin-bottom: 2rem; border-radius: 1px;
+}
+</style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-    <div class="profile-title">Mostafa Mohieldin Mahgoub Ibrahim, Ph.D.</div>
-    <div class="profile-subtitle">Research Fellow | University of Parma</div>
-    <a href="#about">Overview</a>
-    <a href="#news">Latest Activities</a>
-    <a href="#research">Research Fields</a>
-    <a href="#publications">Publications</a>
-    <a href="#contact">Contact</a>
+  <a href="#hero" class="nav-logo">M. [Surname]</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#" class="nav-cv">Download CV</a>
 </nav>
 
-<main>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a specialist in <strong>Medical Entomology</strong> and <strong>Aerobiology</strong>[cite: 11, 163]. With a PhD from the University of Parma and an MSc from the University of Khartoum, my career bridges environmental microbiology and public health[cite: 5, 6]. I currently focus on bioaerosol monitoring and SARS-CoV-2 virological surveillance[cite: 41, 70].</p>
-        
-        <div class="sync-buttons">
-            <a href="https://scholar.google.com/citations?user=YJIh_WEAAAAJ" target="_blank" class="btn scholar">Google Scholar (250+ Citations)</a>
-            <a href="https://orcid.org/0000-0001-8747-1195" target="_blank" class="btn orcid">ORCID: 0000-0001-8747-1195</a>
-        </div>
-    </section>
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-dot-grid"></div>
+  <div class="hero-arc"></div>
+  <div class="hero-arc2"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Ph.D. · University of Parma, Italy · Researcher</p>
+    <h1 class="hero-name">Mostafa<br>Mohieldin</h1>
+    <p class="hero-tagline">Aerobiology, Medical Entomology &amp; Vector-borne Disease Surveillance — bridging environmental science with public health epidemiology.</p>
+    <div class="hero-tags">
+      <span class="tag">Aerobiology</span>
+      <span class="tag">Medical Entomology</span>
+      <span class="tag">Vector Surveillance</span>
+      <span class="tag">One Health</span>
+      <span class="tag">Environmental Health</span>
+      <span class="tag">Climate &amp; Health</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#research" class="btn-primary">View Research &rarr;</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
 
-    <section id="news">
-        <h2>Latest News</h2>
-        <div class="news-container">
-            <div class="news-item">
-                <span class="news-date">July 2024</span>
-                Awarded a Grant from the International Ragweed Society to present at the <strong>World Aerobiology Congress</strong> in Vilnius, Lithuania.
-            </div>
-            <div class="news-item">
-                <span class="news-date">May 2024</span>
-                Published new findings on <strong>Copper Electrostatic Filtration</strong> for air disinfection in <em>IJERPH</em> [cite: 63-65].
-            </div>
-            <div class="news-item">
-                <span class="news-date">February 2024</span>
-                Completed the <strong>European Climate and Health Responder Course</strong> (ASPHER and University of Columbia)[cite: 22].
-            </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-wrap">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">About me</h2>
+    <div class="about-grid">
+      <div class="about-sidebar">
+        <div class="avatar-ring">
+          <span class="avatar-initials">M.</span>
         </div>
-    </section>
+        <p class="affil-label">Affiliations</p>
+        <ul class="affil-list">
+          <li>University of Parma, Italy</li>
+          <li>Intl. Association for Aerobiology (IAA)</li>
+          <li>European Aerobiology Society (EAS)</li>
+          <li>Italian Society of Hygiene (SItI)</li>
+          <li>Italian Register of Surveyors (IRS)</li>
+        </ul>
+      </div>
+      <div class="about-body">
+        <p>I hold a Ph.D. in Translational Medical and Surgical Science from the University of Parma, where I conduct research at the intersection of aerobiology, medical entomology, and public health epidemiology. My work focuses on how biological and environmental factors drive human health outcomes — from airborne pollen exposures to arthropod-borne disease dynamics.</p>
+        <p>My aerobiology research centres on the monitoring and classification of airborne biological particles — pollen grains and fungal spores — using automated devices including the Poleno-99 in Parma. This data informs both allergy forecasting and broader climate–health relationships in the Po Valley.</p>
+        <p>In parallel, my entomological work examines the ecology and medical significance of arthropod vectors relevant to WHO-priority diseases. I apply a One Health framework to connect insect surveillance, environmental change, and population-level disease risk — translating field observations into actionable public health intelligence.</p>
+        <p>I collaborate closely with Prof. Roberto Albertini and Prof. Cesira Pasquarella at the University of Parma. My research is published in Medline-indexed journals, reflecting my commitment to rigorous, evidence-based science.</p>
+        <div class="expertise-row">
+          <span class="tag">Pollen Monitoring</span>
+          <span class="tag">Poleno-99 Analysis</span>
+          <span class="tag">WHO Vector Surveillance</span>
+          <span class="tag">Epidemiology</span>
+          <span class="tag">One Health</span>
+          <span class="tag">GIS &amp; Remote Sensing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="research">
-        <h2>Research Focus</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div class="pub-item">
-                <strong>Bioaerosols & Health</strong>
-                <p style="font-size: 0.9rem;">Monitoring airborne pathogens and air disinfection efficacy in clinical and museum environments[cite: 67, 125].</p>
-            </div>
-            <div class="pub-item">
-                <strong>Medical Entomology</strong>
-                <p style="font-size: 0.9rem;">Molecular identification of vectors and studying insecticide resistance mutations (KDR)[cite: 146, 151].</p>
-            </div>
-        </div>
-    </section>
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-wrap">
+    <p class="section-label">Active areas</p>
+    <h2 class="section-title">Research focus</h2>
+    <div class="research-grid">
 
-    <section id="publications">
-        <h2>Selected Publications</h2>
-        <div class="pub-item">
-            <span class="pub-tag">2024</span><br>
-            <strong>Effectiveness of Copper Electrostatic Filtration "Aerok 1.0" for Air Disinfection.</strong> <em>Int. J. Environ. Res. Public Health</em>[cite: 65].
+      <div class="r-card">
+        <div class="r-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
         </div>
-        <div class="pub-item">
-            <span class="pub-tag">2021</span><br>
-            <strong>Virological surveillance of SARS-CoV-2 in an Italian Northern area.</strong> <em>Acta Biomed</em>[cite: 70].
-        </div>
-        <div class="pub-item">
-            <span class="pub-tag">Book</span><br>
-            <strong>Mosquitoes Ecology.</strong> <em>LAP LAMBERT Academic Publishing</em> (2017)[cite: 122].
-        </div>
-    </section>
+        <h3>Aerobiology</h3>
+        <p>Monitoring and classifying airborne biological particles — pollen grains and fungal spores — using volumetric samplers and automated devices including the Poleno-99 in Parma. Data pipelines are built in Python and R to support allergy forecasting and environmental health research.</p>
+      </div>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p><strong>Affiliation:</strong> Dept. of Medicine and Surgery, University of Parma, Italy[cite: 39, 41].</p>
-        <p><strong>Emails:</strong> mostafa.mohieldinmahgoubibrahim@unipr.it [cite: 3]</p>
-    </section>
-</main>
+      <div class="r-card">
+        <div class="r-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><path d="M8 10 Q12 6 16 10"/><path d="M10 13 Q12 9 14 13"/></svg>
+        </div>
+        <h3>Medical Entomology</h3>
+        <p>Investigating the ecology, distribution, and public health significance of arthropod vectors — including mosquitoes and ticks — with relevance to WHO-priority vector-borne diseases across European and Mediterranean contexts.</p>
+      </div>
+
+      <div class="r-card">
+        <div class="r-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><circle cx="15" cy="15" r="2"/></svg>
+        </div>
+        <h3>Vector-borne Disease Surveillance</h3>
+        <p>Designing and evaluating integrated surveillance systems for vector-borne diseases. Combines entomological field data, epidemiological modelling, and geographic information systems (GIS) to track transmission risk in real time.</p>
+      </div>
+
+      <div class="r-card">
+        <div class="r-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 2a15 15 0 0 0 0 20M12 2a15 15 0 0 1 0 20"/></svg>
+        </div>
+        <h3>Environmental &amp; Public Health</h3>
+        <p>Examining the links between environmental exposures, climate change, and human health outcomes. Applies a One Health framework to bridge ecosystem dynamics, animal health, and human epidemiology in policy-relevant research.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-wrap">
+    <p class="section-label">Medline-indexed</p>
+    <h2 class="section-title">Selected publications</h2>
+    <!-- Replace these placeholders with your actual publication titles and journals -->
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <span class="pub-year">2024</span>
+        <div>
+          <p class="pub-title">[Publication title — replace with actual] Airborne biological particle monitoring and automated classification using the Poleno-99 device in Parma</p>
+          <p class="pub-journal">[Journal name — replace with actual] · Environmental Health &amp; Preventive Medicine</p>
+          <div class="pub-meta">
+            <span class="pub-badge">Medline</span>
+            <span class="pub-collab">With R. Albertini, C. Pasquarella et al.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2023</span>
+        <div>
+          <p class="pub-title">[Publication title — replace with actual] Vector-borne disease surveillance in Northern Italy: integrated entomological and epidemiological approaches</p>
+          <p class="pub-journal">[Journal name — replace with actual] · International Journal of Environmental Research and Public Health</p>
+          <div class="pub-meta">
+            <span class="pub-badge">Medline</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2022</span>
+        <div>
+          <p class="pub-title">[Publication title — replace with actual] Medical entomology and One Health: arthropod ecology and disease prevention in Mediterranean environments</p>
+          <p class="pub-journal">[Journal name — replace with actual] · Parasites &amp; Vectors</p>
+          <div class="pub-meta">
+            <span class="pub-badge">Medline</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2021</span>
+        <div>
+          <p class="pub-title">[Publication title — replace with actual] Climate change and airborne allergens: pollen seasonality trends and public health impact in Emilia-Romagna</p>
+          <p class="pub-journal">[Journal name — replace with actual] · Science of The Total Environment</p>
+          <div class="pub-meta">
+            <span class="pub-badge">Medline</span>
+            <span class="pub-collab">With R. Albertini et al.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrap">
+    <p class="section-label">Collaboration &amp; inquiries</p>
+    <h2 class="section-title">Get in touch</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="c-item">
+          <div class="c-dot"></div>
+          <div>
+            <p class="c-label">Institution</p>
+            <p class="c-value">University of Parma, Italy</p>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-dot"></div>
+          <div>
+            <p class="c-label">Department</p>
+            <p class="c-value">Translational Medical &amp; Surgical Science</p>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-dot"></div>
+          <div>
+            <p class="c-label">Email</p>
+            <p class="c-value">[your.email@unipr.it]</p>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-dot"></div>
+          <div>
+            <p class="c-label">ORCID / Google Scholar</p>
+            <p class="c-value">[your-orcid-id]</p>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-dot"></div>
+          <div>
+            <p class="c-label">Society memberships</p>
+            <div class="memberships">
+              <span class="mbadge">IAA</span>
+              <span class="mbadge">EAS</span>
+              <span class="mbadge">SItI</span>
+              <span class="mbadge">IRS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="contact-blurb">I welcome inquiries regarding research collaborations, postdoctoral opportunities, WHO-related vector surveillance projects, and One Health fellowship programs. Please include a brief description of your interest or project when reaching out.</p>
+        <a href="mailto:[your.email@unipr.it]" class="btn-primary">Send an email &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Mostafa Mohieldin</strong> &nbsp;·&nbsp; Ph.D. &nbsp;·&nbsp; University of Parma
+  <br><br>
+  <a href="#about">About</a>
+  <a href="#research">Research</a>
+  <a href="#publications">Publications</a>
+  <a href="#contact">Contact</a>
+</footer>
 
 </body>
 </html>
